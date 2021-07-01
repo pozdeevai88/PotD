@@ -3,9 +3,7 @@ package ru.geekbrains.potd.ui.main
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -13,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import coil.api.load
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import ru.geekbrains.potd.MainActivity
 import ru.geekbrains.potd.PictureOfTheDayData
 import ru.geekbrains.potd.R
 import ru.geekbrains.potd.databinding.MainFragmentBinding
@@ -37,6 +36,7 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
+        setBottomAppBar(view)
         binding.layoutInput.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data =
@@ -60,7 +60,8 @@ class PictureOfTheDayFragment : Fragment() {
             is PictureOfTheDayData.Success -> {
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
-                val explanation = serverResponseData.explanation
+                val imageExplanation = serverResponseData.explanation
+                val imageTitle = serverResponseData.title
                 if (url.isNullOrEmpty()) {
                     Toast.makeText(context, "EMPTY LINK", Toast.LENGTH_SHORT).show()
                 } else {
@@ -70,8 +71,11 @@ class PictureOfTheDayFragment : Fragment() {
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
                 }
-                if (!explanation.isNullOrEmpty()) {
-                    view?.findViewById<TextView>(R.id.bottom_sheet_description)?.text = explanation
+                if (!imageExplanation.isNullOrEmpty()) {
+                    view?.findViewById<TextView>(R.id.bottom_sheet_description)?.text = imageExplanation
+                }
+                if (!imageTitle.isNullOrEmpty()) {
+                    view?.findViewById<TextView>(R.id.bottom_sheet_description_header)?.text = imageTitle
                 }
             }
 
@@ -80,6 +84,30 @@ class PictureOfTheDayFragment : Fragment() {
             is PictureOfTheDayData.Error -> {
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_bottom_bar, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.app_bar_fav -> Toast.makeText(context, "Favorite", Toast.LENGTH_SHORT).show()
+            R.id.app_bar_search -> Toast.makeText(context, "Search", Toast.LENGTH_SHORT).show()
+            android.R.id.home -> {
+                activity?.let {
+                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun setBottomAppBar(view: View) {
+        val context = activity as MainActivity
+        context.setSupportActionBar(binding.bottomAppBar)
+        setHasOptionsMenu(true)
     }
 
     companion object {
