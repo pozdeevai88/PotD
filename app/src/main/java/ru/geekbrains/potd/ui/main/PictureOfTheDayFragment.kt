@@ -42,7 +42,6 @@ class PictureOfTheDayFragment : Fragment() {
                 if (url.isNullOrEmpty()) {
                     Toast.makeText(context, "EMPTY LINK", Toast.LENGTH_SHORT).show()
                 } else {
-
                     binding.viewImage.load(url) {
                         lifecycle(this@PictureOfTheDayFragment)
                         error(R.drawable.ic_load_error_vector)
@@ -51,12 +50,8 @@ class PictureOfTheDayFragment : Fragment() {
                 }
             }
 
-            is PictureOfTheDayData.Loading -> {
-                //Отобразите загрузку
-                //showLoading()
-            }
-            is PictureOfTheDayData.Error -> {
-            }
+            is PictureOfTheDayData.Loading -> { }
+            is PictureOfTheDayData.Error -> { }
         }
     }
 
