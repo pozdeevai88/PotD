@@ -40,7 +40,6 @@
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Filter" />
@@ -94,7 +93,6 @@
                 android:text="One" />
 
             <com.google.android.material.chip.Chip
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Two" />
@@ -201,7 +199,6 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_close"
-
             style="@style/Widget.MaterialComponents.Chip.Entry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -306,7 +303,6 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-
                         android:layout_height="match_parent"
                         android:text="Text" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -339,23 +335,24 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/outlinedBoxTextField">
 
-                    <com.google.android.material.tabs.TabItem
-                        android:id="@+id/tab1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tab 1" />
+<!--                    <com.google.android.material.tabs.TabItem-->
+<!--                        android:id="@+id/tab1"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Tab 1" />-->
 
-                    <com.google.android.material.tabs.TabItem
-                        android:id="@+id/tab2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tab 2" />
+<!--                    <com.google.android.material.tabs.TabItem-->
+<!--                        android:id="@+id/tab2"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Tab 2" />-->
 
-                    <com.google.android.material.tabs.TabItem
-                        android:id="@+id/tab3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tab 3" />
+<!--                    <com.google.android.material.tabs.TabItem-->
+<!--                        android:id="@+id/tab3"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Tab 3" />-->
+
                 </com.google.android.material.tabs.TabLayout>
 
                 <com.google.android.material.bottomnavigation.BottomNavigationView
