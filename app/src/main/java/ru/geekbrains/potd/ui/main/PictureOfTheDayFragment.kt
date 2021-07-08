@@ -17,6 +17,7 @@ import ru.geekbrains.potd.MainActivity
 import ru.geekbrains.potd.PictureOfTheDayData
 import ru.geekbrains.potd.R
 import ru.geekbrains.potd.databinding.MainFragmentBinding
+import ru.geekbrains.potd.ui.api.ApiActivity
 import ru.geekbrains.potd.ui.settings.SettingsFragment
 
 class PictureOfTheDayFragment : Fragment() {
@@ -96,7 +97,7 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_fav -> Toast.makeText(context, "Favorite", Toast.LENGTH_SHORT).show()
+            R.id.app_bar_fav -> {activity?.let { startActivity(Intent(it, ApiActivity::class.java)) } }
             R.id.app_bar_search -> Toast.makeText(context, "Search", Toast.LENGTH_SHORT).show()
             android.R.id.home -> {
                 activity?.let {
