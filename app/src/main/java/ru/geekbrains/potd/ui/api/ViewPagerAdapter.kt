@@ -25,4 +25,9 @@ class ViewPagerAdapter(private val fragmentManager: FragmentManager) :
     override fun getCount(): Int {
         return fragments.size
     }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return null
+    }
+
 }
