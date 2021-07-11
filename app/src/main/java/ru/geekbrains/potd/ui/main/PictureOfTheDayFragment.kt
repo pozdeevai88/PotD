@@ -16,13 +16,14 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import ru.geekbrains.potd.MainActivity
 import ru.geekbrains.potd.PictureOfTheDayData
 import ru.geekbrains.potd.R
+import ru.geekbrains.potd.databinding.FragmentMainStartBinding
 import ru.geekbrains.potd.databinding.MainFragmentBinding
 import ru.geekbrains.potd.ui.api.ApiActivity
 import ru.geekbrains.potd.ui.settings.SettingsFragment
 
 class PictureOfTheDayFragment : Fragment() {
 
-    private var _binding: MainFragmentBinding? = null
+    private var _binding: FragmentMainStartBinding? = null
     private val binding get() = _binding!!
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     private val viewModel: PictureOfTheDayViewModel by lazy {
@@ -33,7 +34,7 @@ class PictureOfTheDayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentMainStartBinding.inflate(inflater, container, false)
         return binding.root
     }
 
