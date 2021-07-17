@@ -17,6 +17,7 @@ import ru.geekbrains.potd.MainActivity
 import ru.geekbrains.potd.PictureOfTheDayData
 import ru.geekbrains.potd.R
 import ru.geekbrains.potd.databinding.MainFragmentBinding
+import ru.geekbrains.potd.ui.settings.SettingsFragment
 
 class PictureOfTheDayFragment : Fragment() {
 
@@ -102,7 +103,9 @@ class PictureOfTheDayFragment : Fragment() {
                     BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
                 }
             }
-            R.id.app_bar_settings -> {}
+            R.id.app_bar_settings ->
+                activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container,
+                    SettingsFragment())?.addToBackStack(null)?.commit()
         }
         return super.onOptionsItemSelected(item)
     }
