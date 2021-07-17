@@ -1,4 +1,4 @@
-package ru.geekbrains.potd.ui.main
+package ru.geekbrains.potd.ui.picture
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,16 +7,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import ru.geekbrains.potd.BuildConfig
-import ru.geekbrains.potd.PODRetrofitImpl
-import ru.geekbrains.potd.PODServerResponseData
-import ru.geekbrains.potd.PictureOfTheDayData
 
 class PictureOfTheDayViewModel(
-    private val liveDataForViewToObserve: MutableLiveData<PictureOfTheDayData> =
-        MutableLiveData(),
+    private val liveDataForViewToObserve: MutableLiveData<PictureOfTheDayData> = MutableLiveData(),
     private val retrofitImpl: PODRetrofitImpl = PODRetrofitImpl()
 ) :
     ViewModel() {
+
     fun getData(): LiveData<PictureOfTheDayData> {
         sendServerRequest()
         return liveDataForViewToObserve
@@ -49,10 +46,7 @@ class PictureOfTheDayViewModel(
                     }
                 }
 
-                override fun onFailure(
-                    call: Call<PODServerResponseData>, t:
-                    Throwable
-                ) {
+                override fun onFailure(call: Call<PODServerResponseData>, t: Throwable) {
                     liveDataForViewToObserve.value = PictureOfTheDayData.Error(t)
                 }
             })

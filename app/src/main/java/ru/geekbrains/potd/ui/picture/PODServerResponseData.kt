@@ -1,4 +1,4 @@
-package ru.geekbrains.potd
+package ru.geekbrains.potd.ui.picture
 
 import com.google.gson.annotations.SerializedName
 
