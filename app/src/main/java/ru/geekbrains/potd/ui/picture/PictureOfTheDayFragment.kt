@@ -1,9 +1,17 @@
 package ru.geekbrains.potd.ui.picture
 
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Typeface
+import android.graphics.Typeface.BOLD
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
+import android.util.Size
 import android.view.*
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -102,7 +110,17 @@ class PictureOfTheDayFragment : Fragment() {
                     }
                 }
                 serverResponseData.explanation?.let {
-                    text_view.text = it
+                    val spannable = SpannableString(it)
+                    spannable.setSpan(
+                        ForegroundColorSpan(Color.RED),0, 1,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    spannable.setSpan(
+                        StyleSpan(BOLD),0, 1,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    spannable.setSpan(
+                        RelativeSizeSpan(1.5f),0, 1,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    text_view.text = spannable
                 }
             }
             is PictureOfTheDayData.Loading -> {
