@@ -1,4 +1,4 @@
-package ru.geekbrains.potd
+package ru.geekbrains.potd.ui.picture
 
 sealed class PictureOfTheDayData {
     data class Success(val serverResponseData: PODServerResponseData) : PictureOfTheDayData()

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import ru.geekbrains.potd.R
 
 class WeatherFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

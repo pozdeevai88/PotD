@@ -29,5 +29,4 @@ class ViewPagerAdapter(private val fragmentManager: FragmentManager) :
     override fun getPageTitle(position: Int): CharSequence? {
         return null
     }
-
 }
