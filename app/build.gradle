@@ -46,6 +46,13 @@ android {
         jvmTarget = '1.8'
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+    sourceSets {
+        main {
+            assets {
+                srcDirs 'src\\main\\assets', 'src\\main\\assets\\fonts'
+            }
+        }
+    }
 }
 
 dependencies {

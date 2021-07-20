@@ -1,6 +1,7 @@
 package ru.geekbrains.potd.ui.picture
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
@@ -48,6 +49,10 @@ class PictureOfTheDayFragment : Fragment() {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")
             })
+        }
+        activity?.let {
+            text_view.typeface =
+                Typeface.createFromAsset(it.assets, "Wastinger.ttf")
         }
         setBottomAppBar(view)
     }
