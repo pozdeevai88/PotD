@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -44,6 +45,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    sourceSets {
+        main {
+            assets {
+                srcDirs 'src\\main\\assets', 'src\\main\\assets\\fonts'
+            }
+        }
     }
 }
 

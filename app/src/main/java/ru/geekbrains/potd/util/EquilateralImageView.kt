@@ -1,4 +1,4 @@
-package ru.geekbrains.potd
+package ru.geekbrains.potd.util
 
 import android.content.Context
 import android.util.AttributeSet
@@ -9,6 +9,7 @@ class EquilateralImageView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : AppCompatImageView(context, attrs, defStyleAttr) {
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, widthMeasureSpec)
     }
