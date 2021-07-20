@@ -14,6 +14,7 @@ import coil.api.load
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_main_explanation_text.*
 import ru.geekbrains.potd.R
 import ru.geekbrains.potd.ui.MainActivity
 import ru.geekbrains.potd.ui.api.ApiActivity
@@ -94,6 +95,9 @@ class PictureOfTheDayFragment : Fragment() {
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
+                }
+                serverResponseData.explanation?.let {
+                    text_view.text = it
                 }
             }
             is PictureOfTheDayData.Loading -> {
